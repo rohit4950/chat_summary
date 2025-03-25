@@ -33,17 +33,22 @@ Additionally, **Exploratory Data Analysis (EDA) and Data Ingestion** scripts are
  cd <project-folder>
 ```
 
-2️⃣ **Create a virtual environment** (optional but recommended)
-```bash
-python -m venv venv
-source venv/bin/activate  # For macOS/Linux
-venv\Scripts\activate    # For Windows
-```
 
 3️⃣ **Install dependencies**
 ```bash
 pip install -r requirements.txt
 ```
+## 📥 Data Ingestion
+The `data_ingestion.py` script is responsible for:
+- **Loading raw JSON data**
+- **Extracting relevant features (chat ID, messages, agent, sentiment, etc.)**
+- **Saving processed data as a structured DataFrame**
+
+📌 **To run data ingestion:**
+```bash
+python data_ingestion.py
+```
+This will output a cleaned dataset for analysis and API processing.
 
 ## 📊 Exploratory Data Analysis (EDA)
 The `eda.ipynb` notebook provides a detailed analysis of the dataset, including:
@@ -57,26 +62,7 @@ The `eda.ipynb` notebook provides a detailed analysis of the dataset, including:
 1. Open `eda.ipynb` in **Jupyter Notebook**
 2. Run the cells sequentially to analyze the dataset
 
-## 📥 Data Ingestion
-The `data_ingestion.py` script is responsible for:
-- **Loading raw JSON data**
-- **Extracting relevant features (chat ID, messages, agent, sentiment, etc.)**
-- **Saving processed data as a structured DataFrame**
-
-📌 **To run data ingestion:**
-```bash
-python data_ingestion.py
-```
-This will output a cleaned dataset for analysis and API processing.
-
 ## ▶️ Running the API
-### **Method 1: Dynamic User Input from Terminal**
-```bash
-python chat_summary_api.py
-```
-📌 **Follow the prompts** to enter chat details, and the API will generate a summary.
-
-### **Method 2: Running as a FastAPI Server**
 ```bash
 uvicorn chat_summary_api:app --reload
 ```
